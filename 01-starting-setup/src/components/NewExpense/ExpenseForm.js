@@ -25,7 +25,8 @@ export default function ExpenseForm() {
   const dateChangeHandler = event => {
     setUserInput({
       ...userInput,
-      date: new Date(event.target.value),
+      // date: new Date(event.target.value),
+      date: event.target.value,
     });
   };
 
@@ -33,6 +34,12 @@ export default function ExpenseForm() {
     event.preventDefault();
 
     console.log(userInput);
+
+    setUserInput({
+      title: '',
+      amount: '',
+      date: '',
+    });
   };
 
   return (
@@ -40,7 +47,12 @@ export default function ExpenseForm() {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" onChange={titleChangeHandler} />
+          <input
+            type="text"
+            name="title"
+            value={userInput.title}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="amount">Amount</label>
@@ -49,6 +61,7 @@ export default function ExpenseForm() {
             name="amount"
             min="0.01"
             step="0.01"
+            value={userInput.amount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -59,6 +72,7 @@ export default function ExpenseForm() {
             name="date"
             min="2019-01-01"
             max="2022-12-31"
+            value={userInput.date}
             onChange={dateChangeHandler}
           />
         </div>
