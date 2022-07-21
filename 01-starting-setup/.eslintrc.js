@@ -19,6 +19,6 @@ module.exports = {
     'react/prop-types': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'react/no-unescaped-entities': 'off',
-    ' react/jsx-one-expression-per-line': 'off',
+    'react/jsx-one-expression-per-line': 'off',
   },
 };
